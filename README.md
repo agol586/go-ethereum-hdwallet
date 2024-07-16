@@ -1,6 +1,6 @@
 <h3 align="center">
   <br />
-  <img src="https://github.com/miguelmota/go-ethereum-hdwallet/assets/168240/20a63a4b-cb97-4e23-8f59-e89d0fd91882" alt="logo" width="600" />
+  <img src="https://github.com/agol586/go-ethereum-hdwallet/assets/168240/20a63a4b-cb97-4e23-8f59-e89d0fd91882" alt="logo" width="600" />
   <br />
   <br />
   <br />
@@ -12,19 +12,19 @@
 
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/miguelmota/go-ethereum-hdwallet/master/LICENSE)
 [![Build Status](https://travis-ci.org/miguelmota/go-ethereum-hdwallet.svg?branch=master)](https://travis-ci.org/miguelmota/go-ethereum-hdwallet)
-[![Go Report Card](https://goreportcard.com/badge/github.com/miguelmota/go-ethereum-hdwallet?)](https://goreportcard.com/report/github.com/miguelmota/go-ethereum-hdwallet)
-[![GoDoc](https://godoc.org/github.com/miguelmota/go-ethereum-hdwallet?status.svg)](https://godoc.org/github.com/miguelmota/go-ethereum-hdwallet)
+[![Go Report Card](https://goreportcard.com/badge/github.com/agol586/go-ethereum-hdwallet?)](https://goreportcard.com/report/github.com/agol586/go-ethereum-hdwallet)
+[![GoDoc](https://godoc.org/github.com/agol586/go-ethereum-hdwallet?status.svg)](https://godoc.org/github.com/agol586/go-ethereum-hdwallet)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
 ## Install
 
 ```bash
-go get -u github.com/miguelmota/go-ethereum-hdwallet
+go get -u github.com/agol586/go-ethereum-hdwallet
 ```
 
 ## Documenation
 
-[https://godoc.org/github.com/miguelmota/go-ethereum-hdwallet](https://godoc.org/github.com/miguelmota/go-ethereum-hdwallet)
+[https://godoc.org/github.com/agol586/go-ethereum-hdwallet](https://godoc.org/github.com/agol586/go-ethereum-hdwallet)
 
 ## Getting started
 
@@ -35,7 +35,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/miguelmota/go-ethereum-hdwallet"
+	"github.com/agol586/go-ethereum-hdwallet"
 )
 
 func main() {
@@ -75,7 +75,7 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/miguelmota/go-ethereum-hdwallet"
+	"github.com/agol586/go-ethereum-hdwallet"
 )
 
 func main() {
@@ -111,7 +111,7 @@ func main() {
 ## CLI
 
 ```bash
-go install github.com/miguelmota/go-ethereum-hdwallet/cmd/geth-hdwallet@latest
+go install github.com/agol586/go-ethereum-hdwallet/cmd/geth-hdwallet@latest
 ```
 
 ```bash
