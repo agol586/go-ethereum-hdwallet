@@ -4,8 +4,7 @@ builds:
     binary: "geth-hdwallet"
     goos:
       - linux
+      - darwin
     goarch:
-      - 386
       - amd64
-      - arm
       - arm64
