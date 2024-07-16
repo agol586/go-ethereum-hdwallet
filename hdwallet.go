@@ -323,6 +323,10 @@ func (w *Wallet) PrivateKey(account accounts.Account) (*ecdsa.PrivateKey, error)
 	return w.derivePrivateKey(path)
 }
 
+func (w *Wallet) PrivateKeyByPath(path accounts.DerivationPath) (*ecdsa.PrivateKey, error) {
+	return w.derivePrivateKey(path)
+}
+
 // PrivateKeyBytes returns the ECDSA private key in bytes format of the account.
 func (w *Wallet) PrivateKeyBytes(account accounts.Account) ([]byte, error) {
 	privateKey, err := w.PrivateKey(account)

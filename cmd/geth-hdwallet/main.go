@@ -5,8 +5,6 @@ import (
 	"log"
 	"os"
 
-	hdwallet "github.com/agol586/go-ethereum-hdwallet"
-	"github.com/ethereum/go-ethereum/accounts"
 	"github.com/urfave/cli/v2"
 )
 
@@ -24,18 +22,43 @@ func main() {
 	app.Name = "ethereum hdwallet"
 	app.Version = fmt.Sprintf("version: %s-%s", version, gitHash)
 	app.Description = "ethereum hdwallet generator"
-	app.Flags = []cli.Flag{
-		&cli.StringFlag{
-			Name:     "from-mnemonic",
-			Usage:    "from mnemonic",
-			Value:    "",
-			Required: false,
+	app.Flags = []cli.Flag{}
+	app.Commands = cli.Commands{
+		&cli.Command{
+			Name:   "generate-hd",
+			Action: cmdGenerateHD,
+			Flags: []cli.Flag{
+				&cli.StringFlag{
+					Name:     "from-mnemonic",
+					Usage:    "from mnemonic, only for wallet-type: hd",
+					Value:    "",
+					Required: false,
+				},
+				&cli.UintFlag{
+					Name:     "start-index",
+					Usage:    "start from account index of: m/44'/60'/0'/0/{start-index}",
+					Value:    0,
+					Required: false,
+				},
+				&cli.UintFlag{
+					Name:     "account-number",
+					Usage:    "account number to generate, one of account-index / account-number should be use",
+					Value:    1,
+					Required: false,
+				},
+			},
 		},
-		&cli.UintFlag{
-			Name:     "account-index",
-			Usage:    "account index of: m/44'/60'/0'/0/{account-index}",
-			Value:    0,
-			Required: false,
+		&cli.Command{
+			Name:   "generate-rand",
+			Action: cmdGenerateRand,
+			Flags: []cli.Flag{
+				&cli.UintFlag{
+					Name:     "account-number",
+					Usage:    "random account number to generate",
+					Value:    1,
+					Required: false,
+				},
+			},
 		},
 	}
 	app.Action = runAction
@@ -46,34 +69,6 @@ func main() {
 }
 
 func runAction(ctx *cli.Context) error {
-	var mnemonic = ctx.String("from-mnemonic")
-	var idx = uint32(ctx.Uint("account-index"))
-	if mnemonic == "" {
-		m, err := hdwallet.NewMenonic(128, "")
-		if err != nil {
-			return err
-		}
-		fmt.Println("mnemonic:", m)
-		mnemonic = m.Data()
-	}
-	wallet, err := hdwallet.NewFromMnemonic(mnemonic)
-	if err != nil {
-		return err
-	}
-	rootPath := accounts.DefaultRootDerivationPath.String()
-	hdpath := fmt.Sprintf("%s/%d", rootPath, idx)
-	path := hdwallet.MustParseDerivationPath(hdpath)
-	account, err := wallet.Derive(path, false)
-	if err != nil {
-		return err
-	}
-
-	privateKey, err := wallet.PrivateKeyHex(account)
-	if err != nil {
-		return err
-	}
-
-	fmt.Println("public address:", account.Address.Hex())
-	fmt.Println("private key:", privateKey)
+	fmt.Println("runAction")
 	return nil
 }
