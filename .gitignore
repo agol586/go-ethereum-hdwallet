@@ -3,6 +3,5 @@ dist
 build
 node_modules
 vendor/
-cmd/geth-hdwallet
 bin/
 .idea
